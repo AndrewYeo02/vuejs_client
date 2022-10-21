@@ -1,0 +1,37 @@
+[
+    {
+        "id": 1,
+        "username": "user_01",
+        "fname": "Pual",
+        "surname":"Nolan",
+        "email":"paul.nolan@gmail.com"
+    },
+    {
+        "id": 2,
+        "username": "user_02",
+        "fname": "John",
+        "surname": "Martin",
+        "email":"john.martin@gmail.com"
+    },
+    {
+        "id": 3,
+        "username": "user_03",
+        "fname": "Gerry",
+        "surname": "Tim",
+        "email":"john.martin@gmail.com"
+    },
+    {
+        "id": 4,
+        "username": "user_04",
+        "fname": "Micheal",
+        "surname": "Cheill",
+        "email":"micheal.cheill@gmail.com"
+    },
+    {
+        "id": 5,
+        "username": "user_05",
+        "fname": "Emma",
+        "surname": "Tim",
+        "email":"emma.tim@gmail.com"
+    }
+]

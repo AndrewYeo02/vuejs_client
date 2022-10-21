@@ -1,0 +1,90 @@
+<template>
+    <div id="all-trainees">
+        <h1>All Trainees</h1>
+
+        <p><router-link :to="{ name: 'create_trainee' }" class="btn btn-primary">Create Trainee</router-link></p>
+
+        <div class="form-group">
+            <input type="text" name="search" v-model="traineeSearch" placeholder="Search trainees" class="form-control" v-on:keyup="searchTrainees">
+        </div>
+
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <td>ID</td>
+                <td>Username</td>
+                <td>First Name</td>
+                <td>Last Name</td>
+                <td>Email</td>
+                <td>Actions</td>
+            </tr>
+            </thead>
+
+            <tbody>
+                <tr v-for="trainee in trainees">
+                    <td>{{ trainee.id }}</td>
+                    <td>{{ trainee.username }}</td>
+                    <td>{{ trainee.fname }}</td>
+                    <td>{{ trainee.surname }}</td>
+                    <td>{{ trainee.email }}</td>
+                    <!-- <td>{{ trainee.price }}</td> -->
+                    <td>
+                        <router-link :to="{name: 'edit_trainee', params: { id: trainee.id }}" class="btn btn-primary">Edit</router-link>
+                        <router-link :to="{name: 'delete_trainee', params: { id: trainee.id }}" class="btn btn-danger">Delete</router-link>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</template>
+
+<script>
+
+    export default{
+        data(){
+            return{
+                trainees: [],
+                originalTrainees: [],
+                traineeSearch: ''
+            }
+        },
+
+        created: function()
+        {
+            this.fetchTraineeData();
+        },
+
+        methods: {
+            fetchTraineeData: function()
+            {
+                this.$http.get('http://192.168.1.66/api/trainees').then((response) => {
+                    this.trainees = response.body;
+                    this.originalTrainees = this.trainees;
+                }, (response) => {
+
+                });
+            },
+
+            searchTrainees: function()
+            {
+                if(this.traineeSearch == '')
+                {
+                    this.trainees = this.originalTrainees;
+                    return;
+                }
+
+                var searchedTrainees = [];
+                for(var i = 0; i < this.originalTrainees.length; i++)
+                {
+                    var traineeName = this.originalTrainees[i]['name'].toLowerCase();
+                    if(traineeName.indexOf(this.traineeSearch.toLowerCase()) >= 0)
+                    {
+                        searchedTrainees.push(this.originalTrainees[i]);
+                    }
+                }
+
+                this.trainees = searchedTrainees;
+            }
+        }
+    }
+</script>
