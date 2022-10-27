@@ -2,8 +2,10 @@
     <div id="all-trainees">
         <h1>All Trainees</h1>
 
-        <p><router-link :to="{ name: 'create_trainee' }" class="btn btn-primary">Create Trainee</router-link></p>
-
+        <p><router-link :to="{ name: 'create_trainee' }" class="btn btn-primary pull-right">Create Trainee</router-link>
+            <router-link :to="{name: 'view_logbooks'}" class="btn btn-warning">View Logbooks </router-link>
+            <router-link :to="{name: 'view_tasks'}" class="btn btn-warning">View Tasks</router-link>
+        </p>
         <div class="form-group">
             <input type="text" name="search" v-model="traineeSearch" placeholder="Search trainees" class="form-control" v-on:keyup="searchTrainees">
         </div>
@@ -17,6 +19,9 @@
                 <td>Last Name</td>
                 <td>Email</td>
                 <td>Actions</td>
+                <td>
+                </td>
+                
             </tr>
             </thead>
 
@@ -31,6 +36,9 @@
                     <td>
                         <router-link :to="{name: 'edit_trainee', params: { id: trainee.id }}" class="btn btn-primary">Edit</router-link>
                         <router-link :to="{name: 'delete_trainee', params: { id: trainee.id }}" class="btn btn-danger">Delete</router-link>
+                        <router-link :to="{name: 'view_logbook', params: { id: trainee.id }}" class="btn btn-info">View Logbook</router-link>
+
+                      
                     </td>
                 </tr>
             </tbody>
