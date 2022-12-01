@@ -1,6 +1,8 @@
 var path = require('path')
 var webpack = require('webpack')
 
+
+
 module.exports = {
     entry: './src/main.js',
     output: {
@@ -33,7 +35,8 @@ module.exports = {
     },
     resolve: {
         alias: {
-            'vue$': 'vue/dist/vue'
+            'vue$': 'vue/dist/vue',
+          
         }
     },
     devServer: {

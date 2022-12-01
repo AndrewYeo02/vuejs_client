@@ -16,6 +16,7 @@ const ViewLogbooks = require('./assets/js/components/view-logbooks.vue');
 const ViewTasks = require('./assets/js/components/view-tasks.vue');
 const EditLogbooks = require('./assets/js/components/edit-logbooks.vue');
 const ViewLogbook = require('./assets/js/components/view-logbook.vue');
+const CreateLogbook = require('./assets/js/components/create-logbooks.vue');
 
 
 
@@ -55,6 +56,11 @@ const routes = [
         name: 'view_logbook',
         path:'/trainees/logbook',
         component: ViewLogbook
+    },
+    {
+        name: 'create_logbook',
+        path:'/trainee/logbook',
+        component: CreateLogbook
     },
     {
         name: 'view_tasks',

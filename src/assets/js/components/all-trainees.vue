@@ -7,7 +7,7 @@
             <router-link :to="{name: 'view_tasks'}" class="btn btn-warning">View Tasks</router-link>
         </p>
         <div class="form-group">
-            <input type="text" name="search" v-model="traineeSearch" placeholder="Search trainees" class="form-control" v-on:keyup="searchTrainees">
+            <input type="text" name="search" v-model="traineeSearch" placeholder="Search Username" class="form-control" v-on:keyup="searchTrainees">
         </div>
 
         <table class="table table-hover">
@@ -84,7 +84,7 @@
                 var searchedTrainees = [];
                 for(var i = 0; i < this.originalTrainees.length; i++)
                 {
-                    var traineeName = this.originalTrainees[i]['name'].toLowerCase();
+                    var traineeName = this.originalTrainees[i]['username'].toLowerCase();
                     if(traineeName.indexOf(this.traineeSearch.toLowerCase()) >= 0)
                     {
                         searchedTrainees.push(this.originalTrainees[i]);
